@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/multer": "^2.0.0",
     "@types/nodemailer": "^6.4.17",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
@@ -30,12 +31,14 @@
     "zod": "^3.21.4"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.864.0",
     "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/jsonwebtoken": "^9.0.2",
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "jsonwebtoken": "^9.0.0",
+    "multer": "^2.0.2",
     "nodemailer": "^7.0.5"
   }
 }

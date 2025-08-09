@@ -13,7 +13,7 @@ const OtpSchema = new Schema<IOtp>(
       enum: [OTP_TYPE.EMAIL_VERIFICATION, OTP_TYPE.PASSWORD_RESET],
       required: true,
     },
-    
+
     attempts: { type: Number, default: 0 },
     maxAttempts: { type: Number, default: 5 },
 

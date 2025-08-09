@@ -7,11 +7,8 @@ import {
   getAllUserService,
   getSingleUserService,
   deleteUserService,
-  updateUserService,
-  profileService,
-  updateProfileService,
+  updateUserService, 
 } from "./user.service";
-import { JwtPayload } from "jsonwebtoken";
 
 export const getAllUserController = catchAsync(
   async (req: Request, res: Response) => {
@@ -66,31 +63,3 @@ export const deleteUserController = catchAsync(
   }
 );
 
-export const profileController = catchAsync(
-  async (req: Request, res: Response) => {
-    const user = req.user;
-    const result = await profileService(user as JwtPayload);
-
-    sendResponse<IUser>(res, {
-      success: true,
-      statusCode: httpStatus.OK,
-      message: "user profile information retrieved successfully",
-      data: result,
-    });
-  }
-);
-
-export const updateProfileController = catchAsync(
-  async (req: Request, res: Response) => {
-    const user = req.user as JwtPayload;
-    const data = req.body;
-    const result = await updateProfileService(user, data);
-
-    sendResponse(res, {
-      success: true,
-      statusCode: httpStatus.OK,
-      message: "user profile information updated successfully",
-      data: result,
-    });
-  }
-);

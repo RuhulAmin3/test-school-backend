@@ -5,33 +5,23 @@ import {
   getSingleUserController,
   updateUserController,
   deleteUserController,
-  profileController,
-  updateProfileController,
 } from "./user.controller";
-import { updateUserZodSchema, updateProfileZodSchema } from "./user.validation";
 import { auth } from "../../middlewares/auth";
 import { USER_ROLE } from "../../../enums/enum";
+import { updateProfileZodSchema } from "../auth/auth.validation";
 const router = express.Router();
 
 router.get("/", auth(USER_ROLE.ADMIN), getAllUserController);
+
 router.get(
-  "/my-profile",
-  auth(USER_ROLE.BUYER, USER_ROLE.SELLER),
-  profileController
+  "/:id",
+  auth(USER_ROLE.ADMIN, USER_ROLE.SUPERVISOR, USER_ROLE.STUDENT),
+  getSingleUserController
 );
-
-router.patch(
-  "/my-profile",
-  validationRequest(updateProfileZodSchema),
-  auth(USER_ROLE.BUYER, USER_ROLE.SELLER),
-  updateProfileController
-);
-
-router.get("/:id", auth(USER_ROLE.ADMIN), getSingleUserController);
 
 router.patch(
   "/:id",
-  validationRequest(updateUserZodSchema),
+  validationRequest(updateProfileZodSchema),
   auth(USER_ROLE.ADMIN),
   updateUserController
 );

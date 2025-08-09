@@ -12,7 +12,7 @@ export default {
     email: process.env.EMAIL,
     app_pass: process.env.APP_PASS,
   },
-  otp:{
+  otp: {
     otp_length: parseInt(process.env.OTP_LENGTH || "6"),
     expires_in_minutes: parseInt(process.env.OTP_EXPIRES_IN_MINUTES || "5"),
   },
@@ -22,5 +22,13 @@ export default {
     expires_in: process.env.EXPIRES_IN,
     refresh_expires_in: process.env.REFRESH_EXPIRES_IN,
   },
+  
   bcrypt_solt_label: process.env.BCRYPT_SALT_LABEL,
+
+  cloud: {
+    endpoint: process.env.DO_SPACE_ENDPOINT,
+    secret_key: process.env.DO_SPACE_SECRET_KEY,
+    access_key: process.env.DO_SPACE_ACCESS_KEY,
+    bucket: process.env.DO_SPACE_BUCKET,
+  },
 };

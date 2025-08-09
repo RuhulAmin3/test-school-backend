@@ -30,6 +30,7 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>(
     role: {
       type: String,
       enum: Object.values(USER_ROLE),
+      default:USER_ROLE.STUDENT,
       required: true,
     },
     email: {

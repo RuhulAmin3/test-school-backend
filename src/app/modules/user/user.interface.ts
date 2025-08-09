@@ -1,10 +1,11 @@
 import { Model } from "mongoose";
+import { USER_ROLE } from "../../../enums/enum";
 
 export type IUser = {
   firstName: string;
   lastName: string;
   password: string;
-  role: string;
+  role: USER_ROLE;
   email: string;
   profileImage?: string;
   isEmailVerified?: boolean;
@@ -28,6 +29,7 @@ export type IUserFilterData = {
   sortBy?: string;
   searchTerm?: string;
   sortOrder?: "asc" | "desc";
+  role?:USER_ROLE,
 };
 
 export type IProfile = {
